@@ -24,13 +24,13 @@ class RGBLED {
         int blue();
 
     private:
-        int redPin;
-        int greenPin;
-        int bluePin;
-        int red;
-        int green;
-        int blue;
-}
+        int _redPin;
+        int _greenPin;
+        int _bluePin;
+        int _red;
+        int _green;
+        int _blue;
+};
 
 #endif
 

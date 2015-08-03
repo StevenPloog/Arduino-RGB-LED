@@ -4,26 +4,26 @@
 // Constructor for the led
 // Pins passed to this constructor must implement Arduino's analogWrite method
 RGBLED::RGBLED(int redPin, int greenPin, int bluePin) {
-    this.redPin = redPin;
-    this.greenPin = greenPin;
-    this.bluePin = bluePin;
+    _redPin = redPin;
+    _greenPin = greenPin;
+    _bluePin = bluePin;
 
-    red = 0;
-    green = 0;
-    blue = 0;
+    _red = 0;
+    _green = 0;
+    _blue = 0;
 }
 
 // Fade the red, green and blue values
 void RGBLED::fadeRGB(int r, int g, int b) {
-    while (red != r || green != g || blue != b) {
-        if (red < r)        { setRed(red+1); }
-        else if (red > r)   { setRed(red-1); }
+    while (_red != r || _green != g || _blue != b) {
+        if (_red < r)        { setRed(_red+1); }
+        else if (_red > r)   { setRed(_red-1); }
 
-        if (green < g)      { setGreen(green+1); }
-        else if (green > g) { setGreen(green-1); }
+        if (_green < g)      { setGreen(_green+1); }
+        else if (_green > g) { setGreen(_green-1); }
 
-        if (blue < b)       { setBlue(blue+1); }
-        else if (blue > b)  { setBlue(blue-1); }
+        if (_blue < b)       { setBlue(_blue+1); }
+        else if (_blue > b)  { setBlue(_blue-1); }
 
         delay(RGBLED_FADE_DELAY);
     }
@@ -31,9 +31,9 @@ void RGBLED::fadeRGB(int r, int g, int b) {
 
 // Fade the red value
 void RGBLED::fadeRed(int r) {
-    while (red != r) {
-        if (red < r)    { setRed(red+1); }
-        else            { setRed(red-1); }
+    while (_red != r) {
+        if (_red < r)   { setRed(_red+1); }
+        else            { setRed(_red-1); }
 
         delay(RGBLED_FADE_DELAY);
     }
@@ -41,9 +41,9 @@ void RGBLED::fadeRed(int r) {
 
 // Fade the green value
 void RGBLED::fadeGreen(int g) {
-    while (green != g) {
-        if (green < g)  { setGreen(green+1); }
-        else            { setGreen(green-1); }
+    while (_green != g) {
+        if (_green < g) { setGreen(_green+1); }
+        else            { setGreen(_green-1); }
 
         delay(RGBLED_FADE_DELAY);
     }
@@ -51,9 +51,9 @@ void RGBLED::fadeGreen(int g) {
 
 // Fade the blue value
 void RGBLED::fadeBlue(int b) {
-    while (blue != b) {
-        if (blue < b)   { setblue(blue+1); }
-        else            { setblue(blue-1); }
+    while (_blue != b) {
+        if (_blue < b)  { setBlue(_blue+1); }
+        else            { setBlue(_blue-1); }
 
         delay(RGBLED_FADE_DELAY);
     }
@@ -61,35 +61,35 @@ void RGBLED::fadeBlue(int b) {
 
 // Set the red, green and blue values
 void RGBLED::setRGB(int r, int g, int b) {
-    red = r;
-    green = g;
-    blue = b;
+    _red = r;
+    _green = g;
+    _blue = b;
 
-    analogWrite(redPin, red);
-    analogWrite(greenPin, green);
-    analogWrite(bluePin, blue);
+    analogWrite(_redPin, _red);
+    analogWrite(_greenPin, _green);
+    analogWrite(_bluePin, _blue);
 }
 
 // Set the red value
 void RGBLED::setRed(int r) {
-    red = r;
-    analogWrite(redPin, red);
+    _red = r;
+    analogWrite(_redPin, _red);
 }
 
 // Set the green value
 void RGBLED::setGreen(int g) {
-    green = g;
-    analogWrite(greenPin, green);
+    _green = g;
+    analogWrite(_greenPin, _green);
 }
 
 // Set the blue value
 void RGBLED::setBlue(int b) {
-    blue = b;
-    analogWrite(bluePin, blue);
+    _blue = b;
+    analogWrite(_bluePin, _blue);
 }
 
 // Getter methods for rgb values
-int RGBLED::red()   { return red;   }
-int RGBLED::green() { return green; }
-int RGBLED::blue()  { return blue;  }
+int RGBLED::red()   { return _red;   }
+int RGBLED::green() { return _green; }
+int RGBLED::blue()  { return _blue;  }
 
