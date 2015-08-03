@@ -12,7 +12,7 @@ RGBLED::RGBLED(int redPin, int greenPin, int bluePin) {
     pinMode(_greenPin, OUTPUT);
     pinMode(_bluePin, OUTPUT);
 
-    //setRGB(0, 0, 0);
+    setRGB(0, 0, 0);
 }
 
 // Fade the red, green and blue values
