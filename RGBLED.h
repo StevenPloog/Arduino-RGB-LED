@@ -7,29 +7,33 @@
 
 class RGBLED {
     public:
-        RGBLED(int redPin, int greenPin, int bluePin);
+        //RGBLED();
+        RGBLED(float redPin, float greenPin, float bluePin);
 
-        void fadeRGB(int r, int g, int b);
-        void fadeRed(int r);
-        void fadeGreen(int g);
-        void fadeBlue(int b);
+        void fadeRGB(float r, float g, float b);
+        void fadeRed(float r);
+        void fadeGreen(float g);
+        void fadeBlue(float b);
 
-        void setRGB(int r, int g, int b);
-        void setRed(int r);
-        void setGreen(int g);
-        void setBlue(int b);
+        void setRGB(float r, float g, float b);
+        void setRed(float r);
+        void setGreen(float g);
+        void setBlue(float b);
 
-        int red();
-        int green();
-        int blue();
+        void stepToRGB(float r, float g, float b, float stepSize);
+        void stepToRGB(float r, float g, float b);
+
+        float red();
+        float green();
+        float blue();
 
     private:
-        int _redPin;
-        int _greenPin;
-        int _bluePin;
-        int _red;
-        int _green;
-        int _blue;
+        float _redPin;
+        float _greenPin;
+        float _bluePin;
+        float _red;
+        float _green;
+        float _blue;
 };
 
 #endif
